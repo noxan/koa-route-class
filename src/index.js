@@ -11,7 +11,6 @@ export default class Router {
   }
 
   use(router) {
-    console.log(router.routes.forEach);
     if (router.routes === undefined || router.routes.forEach === undefined) {
       throw new Error('You need to call use() with the result of router.routes() or provide a Map of routes.');
     }
