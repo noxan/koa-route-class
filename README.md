@@ -39,3 +39,8 @@ router.get('/', ctx => {
 
 router.use(nestedRouter);
 ```
+
+
+## Credits
+
+Based on https://github.com/koajs/route
