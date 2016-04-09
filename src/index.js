@@ -12,13 +12,12 @@ export default class Router {
 
   routes() {
     const self = this;
-
     const dispatch = async (ctx, next) => {
       const { app } = ctx;
 
-      for (const [path, fn] of self.routeMap) {
+      self.routeMap.forEach((fn, path) => {
         app.use(route.get(path, fn));
-      }
+      });
 
       await next();
     }
