@@ -22,3 +22,20 @@ app.use(router.routes());
 
 app.listen();
 ```
+
+### Nesting
+
+```
+const nestedRouter = new Router();
+const router = new Router();
+
+nestedRouter.get('/nested', ctx => {
+  ctx.body = 'hello, I am nested!';
+});
+
+router.get('/', ctx => {
+  ctx.body = 'hello koa-route-class!';
+});
+
+router.use(nestedRouter);
+```
