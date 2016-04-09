@@ -1,6 +1,6 @@
 {
   "name": "koa-route-class",
-  "version": "0.1.0",
+  "version": "0.2.0",
   "description": "Class wrapper for koa-route with nesting support.",
   "main": "lib/index.js",
   "scripts": {
