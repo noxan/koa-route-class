@@ -14,11 +14,9 @@ export default class Router {
     if (router.routes === undefined || router.routes.forEach === undefined) {
       throw new Error('You need to call use() with the result of router.routes() or provide a Map of routes.');
     }
-    if (router.routes.length > 0) {
-      router.routes.forEach((fn, path) => {
-        this.routeMap.set(path, fn);
-      });
-    }
+    router.routes.forEach((fn, path) => {
+      this.routeMap.set(path, fn);
+    });
   }
 
   routes() {
