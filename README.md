@@ -7,9 +7,17 @@ Attention: This is package is developed and used only with koa2, no idea if it w
 ## Usage
 
 ```
+import Koa from 'koa';
 import Router from 'koa-route-class';
+
+
+const app = new Koa();
 
 router.get('/', ctx => {
   ctx.body = 'hello koa-route-class!';
 });
+
+app.use(router.routes());
+
+app.listen();
 ```
