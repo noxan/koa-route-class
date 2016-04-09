@@ -8,5 +8,8 @@
   },
   "keywords": [],
   "author": "Richard <hello@noxan.net>",
-  "license": "MIT"
+  "license": "MIT",
+  "dependencies": {
+    "koa-route": "^3.1.0"
+  }
 }
