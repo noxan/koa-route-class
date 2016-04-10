@@ -1,13 +1,19 @@
+import { join as pathJoin } from 'path';
 import route from 'koa-route';
 
 
 export default class Router {
-  constructor() {
+  constructor(opts) {
+    this.prefix = (opts || {}).prefix || '';
     this.routeMap = new Map();
   }
 
   get(path, fn) {
-    this.routeMap.set(path, fn);
+    this.routeMap.set(this.prefixPath(path), fn);
+  }
+
+  prefixPath(path) {
+    return pathJoin(this.prefix, path);
   }
 
   use(router) {
@@ -15,7 +21,7 @@ export default class Router {
       throw new Error('You need to call use() with the result of router.routes() or provide a Map of routes.');
     }
     router.routes.forEach((fn, path) => {
-      this.routeMap.set(path, fn);
+      this.routeMap.set(this.prefixPath(path), fn);
     });
   }
 
